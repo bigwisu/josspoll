@@ -1,10 +1,10 @@
 'use strict';
 
-var config = require('../../config.js');
+const config = require('../../config.js');
 
-module.exports = function(router) {
+module.exports = (router) => {
 
-    router.get('/', function(req, res) {
+    router.get('/', (req, res) => {
         res.render('admin',{
             bundleHash: config.bundleHash
         });
