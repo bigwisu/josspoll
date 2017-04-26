@@ -1,7 +1,37 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router'
+import { Link } from 'react-router';
+import axios from 'axios';
+
+let renderLeaf = (link, i) => {
+    return (
+      <li className="nav-item" key={i}>
+        <Link to={link.url} className="nav-link" activeClassName="active">
+          <i className={link.icon}></i> {link.text}</Link>
+      </li>
+    );
+}
 
 class Sidebar extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      links: []
+    };
+  }
+
+  componentDidMount() {
+    var _this = this;
+    this.serverRequest =
+      axios
+        .get("/admin/menu")
+        .then(function (result) {
+          _this.setState({
+            links: result.data
+          });
+        })
+  }
 
   handleClick(e) {
     e.preventDefault();
@@ -23,8 +53,25 @@ class Sidebar extends Component {
         <nav className="sidebar-nav">
           <ul className="nav">
             <li className="nav-item">
-              <Link to={'/dashboard'} className="nav-link" activeClassName="active"><i className="icon-speedometer"></i> Dashboard <span className="badge badge-info">NEW</span></Link>
+              <Link to={'/dashboard'} className="nav-link" activeClassName="active">
+                <i className="icon-speedometer"></i> Dashboard</Link>
             </li>
+            {this.state.links.map((link, i) => {
+              if(link.branch){
+                return (
+                  <li className={this.activeRoute(`${link.url}`)} key={i}>
+                    <a className="nav-link nav-dropdown-toggle" href="#" onClick={this.handleClick.bind(this)}><i className={link.icon}></i> {link.text}</a>
+                    <ul className="nav-dropdown-items">
+                      {link.children.map( (leaf,n) => {
+                        return renderLeaf(leaf,n)
+                      })}
+                    </ul>
+                  </li>
+                )
+              }else{
+                return renderLeaf(link,i);
+              }
+            })}
           </ul>
         </nav>
       </div>
