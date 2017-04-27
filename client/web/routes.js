@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import Main from './containers/Main'
+import Main from './layout/Main'
 
 import Intro from './views/Intro'
 import About from './views/About'
