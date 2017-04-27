@@ -1,6 +1,6 @@
 {
-  "name": "Full",
+  "name": "Web",
   "version": "0.0.0",
   "private": true,
-  "main": "./Full.js"
+  "main": "./Web.js"
 }

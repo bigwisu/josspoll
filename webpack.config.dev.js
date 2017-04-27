@@ -7,8 +7,8 @@ const autoprefixer = require('autoprefixer');
 module.exports = {
     devtool: 'source-map',
     entry: {
-        admin: './client/admin/index',
-        web: './client/web/index'
+        admin: './client/admin/',
+        web: './client/web/'
     },
     output: {
         path: path.join(__dirname, 'public'),

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Route, Link } from 'react-router-dom'
 import axios from 'axios';
+import { withRouter } from 'react-router';
 
 let renderLeaf = (link, i) => {
     return (
       <li className="nav-item" key={i}>
-        <Link to={link.url} className="nav-link" activeClassName="active">
+        <Link to={link.url} className="nav-link">
           <i className={link.icon}></i> {link.text}</Link>
       </li>
     );
@@ -53,7 +54,7 @@ class Sidebar extends Component {
         <nav className="sidebar-nav">
           <ul className="nav">
             <li className="nav-item">
-              <Link to={'/dashboard'} className="nav-link" activeClassName="active">
+              <Link to={'/dashboard'} className="nav-link">
                 <i className="icon-speedometer"></i> Dashboard</Link>
             </li>
             {this.state.links.map((link, i) => {
@@ -79,4 +80,4 @@ class Sidebar extends Component {
   }
 }
 
-export default Sidebar;
+export default withRouter(Sidebar);

@@ -1,6 +1,6 @@
 {
-  "name": "Simple",
+  "name": "Admin",
   "version": "0.0.0",
   "private": true,
-  "main": "./Simple.js"
+  "main": "./Admin.js"
 }
