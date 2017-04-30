@@ -39,6 +39,7 @@
     "react-breadcrumbs": "^1.6.6",
     "react-chartjs-2": "^2.0.5",
     "react-dom": "^15.5.4",
+    "react-medium-editor": "^1.8.1",
     "react-redux": "^5.0.4",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
