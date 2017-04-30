@@ -13,7 +13,9 @@ class Main extends Component {
   render() {
     return (
       <div className="App">
-          <Header />
+          <Header name="Welcome to React"/>
+          {/*Question? how do i pass variables in react-router@4*/}
+          {this.props.name}
           {this.props.children}
       </div>
     );
