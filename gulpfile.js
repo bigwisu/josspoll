@@ -5,7 +5,7 @@ var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 
 gulp.task('build', function () {
-  return gulp.src('./frontend/scss/style.scss')
+  return gulp.src('./client/admin/scss/style.scss')
   .pipe(sass().on('error', sass.logError))
   .pipe(concat('style.css'))
   .pipe(gulp.dest('./public/css'))
